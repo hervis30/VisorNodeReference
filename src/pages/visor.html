@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Visor Nacional Ministerio de Salud y Protección Social - Ambiente QA</title>
+	<link href="https://cdn.datatables.net/v/bs5/dt-2.0.8/datatables.min.css" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <div class="main-wrapper">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <header>
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid" style="background-color: #3366cc; height: 70px;">
+                <a
+                  class="navbar-brand"
+                  href="https://www.minsalud.gov.co/Portada2021/index.html"
+                >
+                  <img
+                    src="https://www.secretariatransparencia.gov.co/SiteCollectionImages/gov.co-footer.png"
+                    alt="Logo"
+                    class="d-inline-block align-text-top"
+                    style="height: 30px;"
+                  />
+                </a>
+              </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container pt-3 pb-3">
+                <div class="collapse navbar-collapse">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                      <img
+                      src="https://www.minsalud.gov.co/ihce/PublishingImages/Logos/logo-IHCE.png"
+                      style="height: 150px;"
+                    </li>
+                    </ul>
+                </div>
+              </div>
+            </nav>
+          </header>
+        <br /><br /><br /><br /><br /><br /><br /><br />
+
+        <div class="d-flex justify-content-center">
+            <div class="accordion" id="accordionExample" style="width: 50%">
+
+                <!-- Desplegable para Consulta de Información -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConsulta">
+                  <i class="bx bxs-id-card bx-lg"></i>
+                      <h5 class="card-title">Consulta Información Resumen Digital de Atención en Salud - Ambiente QA</h5>
+                </button>
+              </h2>
+                    <div id="collapseConsulta" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="inputDocumento" class="form-label">No. de Documento</label>
+                                        <input type="text" class="form-control" id="inputDocumento" placeholder="Digita el Número de Documento" required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputTipoDocumento" class="form-label">Tipo de Documento</label>
+                                        <select class="form-select" id="inputTipoDocumento">
+                                            <option value="CC">Cédula de ciudadania</option>
+                                            <option value="TI">Tarjeta de Identidad</option>
+                                            <option value="CE">Cédula de Extranjería</option>
+                                            <option value="PA">Pasaporte</option>
+                                            <option value="RC">Registro civil</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- NUEVO CAMPO DE FECHA -->
+                                    
+                                    <div class="col-12">
+                                      <br />
+                                      <button type="submit" class="btn btn-primary" id="consultaInfoIhce">
+                                          <i class="bx bx-search"></i> Consultar Información
+                                      </button>
+                                      <button type="button" class="btn btn-outline-secondary ms-2" id="limpiarFiltros">
+                                          <i class="bx bx-refresh"></i> Limpiar
+                                      </button>
+                                  </div>
+                                   
+                                 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <br /><br />
+
+                <div class="d-flex justify-content-center">
+                    <div class="accordion" id="accordionExample" style="width: 100%">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    class="bi bi-person-bounding-box icon-style"
+                    viewBox="0 0 16 16"
+                  >
+                  
+                    <path
+                      d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5"
+                    />
+                    <path
+                      d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM8 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+                    />
+                  </svg>
+                  Paciente
+               
+              </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body" id="accordion-body-patient">
+                                    <!-- Aquí puedes añadir el contenido relacionado con el paciente -->
+                                </div>
+                            </div>
+                        </div>
+
+
+           
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix"
+                  aria-expanded="false"
+                  aria-controls="collapseSix"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    class="bi bi-hospital-fill icon-style"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M6 0a1 1 0 0 0-1 1v1a1 1 0 0 0-1 1v4H1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h6v-2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V16h6a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-3V3a1 1 0 0 0-1-1V1a1 1 0 0 0-1-1zm2.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1zM2.25 9h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 9.75v-.5A.25.25 0 0 1 2.25 9m0 2h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5a.25.25 0 0 1 .25-.25M2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zM13.25 9h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5a.25.25 0 0 1 .25-.25M13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm.25 1.75h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5a.25.25 0 0 1 .25-.25"
+                    />
+                  </svg>
+                  Historial de Atenciones en Salud
+                  <span class="badge bg-info ms-2" id="contadorDocumentos" style="display: none;">0</span>
+                </button>
+              </h2>
+                            
+                            <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                <div class="accordion-body" id="accordion-body-envios" style="max-height: 400px; overflow-y: auto;">
+                                    <!-- Aquí irán las filas de datos generadas dinámicamente -->
+                                </div>
+                                
+ <!-- ✅ Contenedor para paginación -->
+    <div id="paginacion" class="mt-3 d-flex justify-content-center"></div>
+  </div>
+  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vertically centered modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content card">
+                        <div class="modal-header card-header">
+                            <h2 id="exampleModalLabel">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                    class="bi bi-info-square icon-style"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+                    />
+                    <path
+                      d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"
+                    />
+                  </svg>
+                  Información del Resumen de Atención en Salud
+                </h2>
+                        </div>
+                        <div class="modal-body" id="mostrarCompositions">...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spinner Modal -->
+            <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <div class="spinner-border text-primary" role="status"></div>
+                            <p class="mt-3">Consultando Información...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PIE DE PÁGINA GOV.CO -->
+	<footer class="footer-govco">
+		<nav class="navbar bg-body-tertiary">
+		  <div class="container-fluid" style="background-color: #3366cc; height: 30px; display: flex; justify-content: flex-start; align-items: center; padding-left: 18px;">
+			<a
+			  class="navbar-brand"
+			  href="https://www.minsalud.gov.co/Portada2021/index.html"
+			  style="display: flex; align-items: center; gap: 10px;"
+			>
+			  <img
+				src="https://cdn.www.gov.co/v4/assets/images/logo-colombia.svg"
+				alt="Logo IMAGEN"
+				style="height: 50px;"
+			  />
+			  <img
+				src="https://www.secretariatransparencia.gov.co/SiteCollectionImages/gov.co-footer.png"
+				alt="Logo"
+				style="height: 30px;"
+			  />
+			</a>
+		  </div>
+		</nav>
+	</footer>
+
+    <script>
+        // JavaScript para controlar la visibilidad del campo de fecha
+        document.addEventListener('DOMContentLoaded', function() {
+            const activarFiltro = document.getElementById('activarFiltroFecha');
+            const contenedorFecha = document.getElementById('contenedorFecha');
+            const inputFecha = document.getElementById('inputFechaDesde');
+            const limpiarBtn = document.getElementById('limpiarFiltros');
+            
+            // Mostrar/ocultar campo de fecha
+            activarFiltro.addEventListener('change', function() {
+                if (this.checked) {
+                    contenedorFecha.style.display = 'block';
+                    // Establecer fecha por defecto (1 de mayo de 2025)
+                    if (!inputFecha.value) {
+                        inputFecha.value = '2025-05-01';
+                    }
+                } else {
+                    contenedorFecha.style.display = 'none';
+                    inputFecha.value = '';
+                }
+            });
+            
+            // Función para limpiar filtros
+            limpiarBtn.addEventListener('click', function() {
+                document.getElementById('inputDocumento').value = '';
+                document.getElementById('inputTipoDocumento').value = 'CC';
+                activarFiltro.checked = false;
+                contenedorFecha.style.display = 'none';
+                inputFecha.value = '';
+                
+                // Limpiar resultados si existen
+                document.getElementById('accordion-body-patient').innerHTML = '';
+                document.getElementById('accordion-body-envios').innerHTML = '';
+                const contador = document.getElementById('contadorDocumentos');
+                if (contador) {
+                    contador.style.display = 'none';
+                    contador.textContent = '0';
+                }
+            });
+            
+            // Función para obtener los valores del formulario (para usar en tu JavaScript)
+            window.obtenerParametrosConsulta = function() {
+                const documento = document.getElementById('inputDocumento').value;
+                const tipoDocumento = document.getElementById('inputTipoDocumento').value;
+                const fechaDesde = activarFiltro.checked ? inputFecha.value : null;
+                
+                return { documento, tipoDocumento, fechaDesde };
+            };
+        });
+    </script>
+
+	<script src="https://cdn.datatables.net/v/bs5/dt-2.0.8/datatables.min.js"></script>
+	<script src="/consultas_rda.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>	
+
+  
+</body>
+
+</html>
